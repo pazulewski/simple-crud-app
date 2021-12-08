@@ -19,6 +19,7 @@
       <th>Imię</th>
       <th>Nazwisko</th>
       <th>E-mail</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
       <td th:text="${employee.firstName}"></td>
       <td th:text="${employee.lastName}"></td>
       <td th:text="${employee.email}"></td>
+      <td><a th:href="@{${employee.id} + '/edit'}" class="btn btn-outline-dark mb-4">Edytuj</a></td>
     </tr>
         </tbody>
   </table>

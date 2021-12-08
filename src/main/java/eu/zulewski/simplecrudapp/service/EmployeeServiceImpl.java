@@ -22,4 +22,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void create(Employee employee) {
         employeeRepository.save(employee);
     }
+
+    @Override
+    public Employee getEmployeeById(Long id) {
+        return employeeRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("User with id: " + id + " not found"));
+    }
+
+    @Override
+    public void update(Employee employee) {
+        employeeRepository.save(employee);
+    }
 }

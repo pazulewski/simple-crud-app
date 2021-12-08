@@ -12,6 +12,7 @@
   <h1>Dodaj pracownika</h1>
   <a th:href="@{/}" class="btn btn-outline-dark mb-4">Wróć</a>
   <form th:object="${employee}" method="post" th:action="@{/add}">
+    <input type="hidden" th:field="*{id}">
     <input type="text" th:field="*{firstName}" placeholder="Imię" class="form-control mb-4 col-4">
     <input type="text" th:field="*{lastName}" placeholder="Nazwisko" class="form-control mb-4 col-4">
     <input type="text" th:field="*{email}" placeholder="E-mail" class="form-control mb-4 col-4">
