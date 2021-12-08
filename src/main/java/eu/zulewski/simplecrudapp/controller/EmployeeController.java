@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -21,4 +23,18 @@ public class EmployeeController {
         modelMap.addAttribute("employeeList", employeeList);
         return "index";
     }
+
+    @GetMapping("/add")
+    public String getForm(ModelMap modelMap) {
+        Employee employee = new Employee();
+        modelMap.addAttribute("employee", employee);
+        return "add";
+    }
+
+    @PostMapping("/add")
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+        employeeService.create(employee);
+        return "redirect:/";
+    }
+
 }
